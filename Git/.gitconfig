@@ -1,0 +1,16 @@
+[user]
+	email = hcgridiron49@gmail.com
+	name = Keith Beckman
+[core]
+	autocrlf = false
+[merge]
+	tool = diffmerge
+[mergetool]
+	keepBackup = false
+[mergetool "diffmerge"]
+	#cmd = 'c:\\program files (x86)\\git\\cmd\\git-mergetool-diffmerge-wrapper.sh' "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
+	cmd = git-mergetool-diffmerge-wrapper.sh "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
+[diff]
+	tool = diffmerge
+[difftool "diffmerge"]
+	cmd = git-difftool-diffmerge-wrapper.sh "$LOCAL" "$REMOTE"

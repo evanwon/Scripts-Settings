@@ -1,0 +1,10 @@
+select vdisk file="v:\native\developer\ultimatex64_development.vhd"
+compact vdisk
+
+select vdisk file="v:\native\developer\2008r2_developer.vhd"
+compact vdisk
+
+select vdisk file="v:\native\developer\2008r2_data.vhd"
+compact vdisk
+
+exit
