@@ -2,6 +2,7 @@
 cleanmgr.exe /d c:
 
 :: Run disk defrag...
+::http://technet.microsoft.com/en-us/magazine/ff458356.aspx
 defrag c: /H /U /V
 defrag c: /H /X /U /V
 

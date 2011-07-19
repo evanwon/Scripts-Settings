@@ -1,7 +1,9 @@
+:: Run the DiskCleanup utility...
 cleanmgr.exe /d c:
 
-defrag c: /H /U /V
-defrag d: /H /U /V
-defrag v: /H /U /V
+:: Run disk defrag...
+::http://technet.microsoft.com/en-us/magazine/ff458356.aspx
+defrag /C /H /U /V
+defrag /C /H /X /U /V
 
 pause
