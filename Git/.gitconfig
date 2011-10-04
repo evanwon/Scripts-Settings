@@ -8,7 +8,6 @@
 [mergetool]
 	keepBackup = false
 [mergetool "diffmerge"]
-	#cmd = 'c:\\program files (x86)\\git\\cmd\\git-mergetool-diffmerge-wrapper.sh' "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
 	cmd = git-mergetool-diffmerge-wrapper.sh "$LOCAL" "$BASE" "$REMOTE" "$MERGED"
 [diff]
 	tool = diffmerge
