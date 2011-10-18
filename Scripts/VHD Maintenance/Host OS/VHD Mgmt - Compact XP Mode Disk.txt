@@ -1,4 +1,0 @@
-select vdisk file="C:\Users\Keith Beckman\AppData\Local\Microsoft\Windows Virtual PC\Virtual Machines\Windows XP Mode.vhd"
-compact vdisk
-
-exit
