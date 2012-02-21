@@ -13,9 +13,9 @@ defrag h: /H /X /U /V
 
 cd "c:\program files (x86)\sysinternals suite"
 
-:: Run SDelete to zero-out free space...
-sdelete.exe -p 1 -z c:\
-sdelete.exe -p 1 -z h:\
+:: Run SDelete (1.6) to zero-out free space...
+sdelete -p 1 -z c:\
+sdelete -p 1 -z h:\
 
 net start mssqlserver
 

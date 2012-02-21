@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<Header>
+		<Title>NUnit Method - Test</Title>
+		<Author>KBeckman</Author>
+		<Description>Contains a skeleton method decorated with the NUnit TestAttribute.</Description>
+		<SnippetTypes>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>TestName</ID>
+				<ToolTip>Descriptive name for the unit test method.</ToolTip>
+				<Default>NewTest</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="csharp">
+			<![CDATA[	
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Category("")]
+		public void $TestName$()
+		{
+			
+		}
+			]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>

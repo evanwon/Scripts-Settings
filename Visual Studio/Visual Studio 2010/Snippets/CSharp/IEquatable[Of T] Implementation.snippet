@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<Header>
+		<Title>IEquatable(Of T) Implementation</Title>
+		<Author>KBeckman</Author>
+		<Description>This snippet provides an implementation for the generic IEquatable interface.</Description>
+		<SnippetTypes>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>ClassName</ID>
+				<ToolTip>The type name to which the overload belongs.</ToolTip>
+				<Default>NewClass</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="csharp">
+			<![CDATA[
+#region IEquatable<$ClassName$> Members
+
+/// <summary>
+/// This method determines whether the specified $ClassName$ is equal to the current $ClassName$ instance.
+/// </summary>
+/// <param name="other">$ClassName$ instance to compare against the current instance.</param>
+/// <returns>Boolean value indicating whether or not the $ClassName$ objects are equal.</returns>
+public bool Equals($ClassName$ other)
+{
+	//TODO: Add any required comparisons between class members here...
+	//if (_valueA != other._valueA) { return false; }
+	//if (_valueB != other._valueB) { return false; }
+	//
+	//return _valueC == other._valueC;
+}
+
+#endregion
+			]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>
