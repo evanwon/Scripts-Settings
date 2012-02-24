@@ -1,8 +1,3 @@
-Function Seven-Zip([string]$source, [string]$destination)
-{
-	& "C:\Program Files\7-Zip\7z.exe" a -t7z $destination $source
-}
-
 Get-Date
 
 # Move backups from prior maintenance cycle to the ..\old directory...
