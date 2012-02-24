@@ -2,7 +2,7 @@ net stop mssqlserver
 
 Clean-Disk
 
-Defrag-C-Drive
+Defrag-All-Drives
 
 SDelete-Zero-FreeSpace "C:\"
 
