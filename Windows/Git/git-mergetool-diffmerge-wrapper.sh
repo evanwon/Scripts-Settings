@@ -1,6 +1,3 @@
-# place this file in the Windows Git installation directory /cmd folder
-# be sure to add the ../cmd folder to the Path environment variable
-
 # passing the following parameters to mergetool:
 # local base remote merge_result
 
