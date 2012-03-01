@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<Header>
+		<Title>MSTest TestClass</Title>
+		<Author>KBeckman</Author>
+		<Description>This snippet contains the skeleton of an MSTest TestClass.</Description>
+		<SnippetTypes>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Declarations>
+			<Literal>
+				<ID>ClassCovered</ID>
+				<ToolTip>The name of the class covered by this test class.</ToolTip>
+				<Default>ClassCovered</Default>
+			</Literal>
+			<Literal>
+				<ID>Namespace</ID>
+				<ToolTip>The namespace for the test class.</ToolTip>
+				<Default>Namespace.Test</Default>
+			</Literal>
+		</Declarations>
+		<Code Language="csharp">
+			<![CDATA[
+using System;
+using System.Collections.Generic;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace $Namespace$
+{
+	/// <summary>
+	/// MSTest TestClass providing unit test coverage of $ClassCovered$.
+	/// </summary>
+	[TestClass]
+	public class $ClassCovered$Test
+	{
+		#region Member Variables
+		
+		
+
+		#endregion
+
+		#region TestClass Initialize / Cleanup
+		
+		/// <summary>
+		/// Default ctor.
+		/// </summary>
+		public $ClassCovered$Test()
+		{
+			//TODO: Add any readonly member initialization here...
+		}
+		
+		/// <summary>
+		/// Gets or sets the test context which provides information about and functionality for the current test run.
+		/// </summary>
+		private TestContext testContextInstance;
+		public TestContext TestContext
+		{
+			get
+			{
+				return testContextInstance;
+			}
+			set
+			{
+				testContextInstance = value;
+			}
+		}
+
+		#endregion
+
+		#region Test Methods
+		
+		
+		
+		#endregion
+		
+		#region Private Methods
+		
+		
+		
+		#endregion
+	}
+}
+			]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>

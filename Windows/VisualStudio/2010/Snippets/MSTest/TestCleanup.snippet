@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippet Format="1.0.0" xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+	<Header>
+		<Title>MSTest Method - TestCleanup</Title>
+		<Author>KBeckman</Author>
+		<Description>This snippet contains a skeleton method decorated with the MSTest TestCleanupAttribute.</Description>
+		<SnippetTypes>
+			<SnippetType>Expansion</SnippetType>
+		</SnippetTypes>
+	</Header>
+	<Snippet>
+		<Code Language="csharp">
+			<![CDATA[	
+		/// <summary>
+		/// This method executes individual TestMethod-level clean-up after each test has been run. This method is guaranteed 
+		/// to run even if an exception is thrown.
+		/// </summary>
+		[TestCleanup]
+		public void TestCleanup()
+		{
+			//TODO: Add any TestMethod clean-up logic here...
+		}
+			]]>
+		</Code>
+	</Snippet>
+</CodeSnippet>
