@@ -5,7 +5,7 @@
 # cleanmgr /sageset:49
 Function Clean-Disk()
 {
-	& "cleanmgr" /sagerun:49
+	cleanmgr /sagerun:49
 }
 
 # defrag Command Line Parameters
