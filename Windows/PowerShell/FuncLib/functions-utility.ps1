@@ -32,7 +32,7 @@
 
 Function Seven-Zip([string]$source, [string]$destination)
 {
-	7z a -t7z $destination $source
+	& "7z" a -t7z $destination $source
 }
 
 
