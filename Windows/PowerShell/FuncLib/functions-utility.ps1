@@ -32,5 +32,35 @@
 
 Function Seven-Zip([string]$source, [string]$destination)
 {
-	& "C:\Program Files\7-Zip\7z.exe" a -t7z $destination $source
+	7z a -t7z $destination $source
+}
+
+
+# -a         Remove Read-Only attribute
+# -c         Clean free space
+# -p passes  Specifies number of overwrite passes (default is 1)
+# -q         Don't print errors (Quiet)
+# -s or -r   Recurse subdirectories
+# -z         Zero free space (good for virtual disk optimization)
+
+# Zeros out free space on virtual disk drives before compaction.
+# $drive = "D:\"
+Function SDelete-Zero-FreeSpace([string]$drive)
+{
+	sdelete -p 1 -z $drive
+}
+
+# Securely and recursively wipes a file or directory location (set for 7 passes).
+# $source = "D:\WipeDir", "D:\Wipe.zip"
+Function SDelete-Wipe([string]$source)
+{
+	sdelete -p 7 -q -r $source
+	rm $source -force
+}
+
+# Securely wipes all free space on a specified drive.
+# $drive = "D:\"
+Function SDelete-Wipe-FreeSpace([string]$drive)
+{
+	sdelete -p 7 -c $drive
 }
