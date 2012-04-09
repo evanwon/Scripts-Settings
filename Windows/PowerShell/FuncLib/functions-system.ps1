@@ -1,3 +1,30 @@
+# Configures PowerShell UI settings...
+Function Setup-PowerShell-UI()
+{
+		# Configure PowerShell UI...
+	$host.ui.rawui.ForegroundColor 	= "Green"
+	$host.ui.rawui.BackgroundColor 	= "Black"
+	$host.ui.rawui.CursorSize 		= 25
+
+	$bufferSize = $host.ui.rawui.BufferSize
+	$bufferSize.Width = 140
+	$bufferSize.Height = 3000
+	$host.ui.rawui.BufferSize = $bufferSize
+
+	$windowSize = $host.ui.rawui.WindowSize
+	$windowSize.Width = 140
+	$windowSize.Height = 36
+	$host.ui.rawui.WindowSize = $windowSize
+
+	$maxWindowSize = $host.ui.rawui.MaxWindowSize
+	$maxWindowSize.Width = 140
+	$maxWindowSize.Height = 44
+	$host.ui.rawui.WindowSize = $maxWindowSize
+
+	Clear-Host
+}
+
+
 # Run the following command on every new system prior to running this command to store the CleanMgr 
 # settings in the Windows registry... The "49" arguement is arbitrary, it just defines the registry
 # value allowing you to set multiple CleanMgr profiles if desired.
@@ -7,6 +34,7 @@ Function Clean-Disk()
 {
 	cleanmgr /sagerun:49
 }
+
 
 # defrag Command Line Parameters
 # Value   Description
@@ -27,6 +55,7 @@ Function Defrag-All-Drives()
 	defrag '/C /M /X /U'
 }
 
+
 Function Defrag-C-Drive()
 {
 	defrag C: /H /W /U
@@ -46,6 +75,7 @@ Function SDelete-Zero-FreeSpace([string]$drive)
 	& "C:\Program Files (x86)\Sysinternals Suite\sdelete.exe"  -p 1 -z $drive
 }
 
+
 # Securely and recursively wipes a file or directory location (set for 7 passes).
 # $source = "D:\WipeDir", "D:\Wipe.zip"
 Function SDelete-Wipe([string]$source)
@@ -54,6 +84,7 @@ Function SDelete-Wipe([string]$source)
 	# Make the call a second time to ensure an empty folder is wiped...
 	& "C:\Program Files (x86)\Sysinternals Suite\sdelete.exe"  -p 7 -q -r $source
 }
+
 
 # Securely wipes all free space on a specified drive.
 # $drive = "D:\"
