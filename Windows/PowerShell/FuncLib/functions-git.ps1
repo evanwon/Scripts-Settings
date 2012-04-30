@@ -1,5 +1,5 @@
 # Configures Git global configuration settings... 
-Function Setup-Git([string]$username, [string]$email)
+Function Setup-Git([string]$username = "kbeckman", [string]$email = "kbeckman.c4sc@gmail.com")
 {
 	$pathEnvVariable 	= [Environment]::GetEnvironmentVariable("Path")
 	$diffmergePath 		= ";C:\Program Files\SourceGear\Common\DiffMerge"
@@ -23,4 +23,11 @@ Function Setup-Git([string]$username, [string]$email)
 	git config --global mergetool.keepBackup false
 
 	git config --global color.ui true
+}
+
+# Configures Git at a repository level... 
+Function Setup-Git-Repo([string]$username = "kbeckman", [string]$email = "kbeckman.c4sc@gmail.com")
+{
+	git config user.name $username
+	git config user.email $email
 }
