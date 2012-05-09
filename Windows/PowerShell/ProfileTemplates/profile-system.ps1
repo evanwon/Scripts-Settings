@@ -24,12 +24,21 @@ Function Setup-Dependencies([string]$githubPath)
 # START PROFILE SCRIPT
 
 # Set necessary command line environment variables...
-$env:path += ";C:\Program Files (x86)\Git\cmd"				# Git
-$env:path += ";C:\Program Files\TortoiseHg"					# Mercurial
-$env:path += ";C:\Program Files (x86)\NuGet"				# NuGet
-$env:path += ";C:\Program Files\Oracle\VirtualBox" 			# VirtualBox
-$env:path += ";C:\Program Files (x86)\Sysinternals Suite"	# Sysinternals
-$env:path += ";C:\Program Files\7-Zip\"						# 7-Zip
+# [Ruby 1.9.3, Git, TortoiseHg, DiffMerge, NuGet, VirtualBox, Sysinternals Suite, 7-7ip, OpenSSL]
+$requiredPaths = @( ";C:\Ruby193\bin", 					
+					";C:\Program Files (x86)\Git\cmd",
+					";C:\Program Files\TortoiseHg",
+					";C:\Program Files\SourceGear\Common\DiffMerge",
+					";C:\Program Files (x86)\NuGet",
+					";C:\Program Files\Oracle\VirtualBox", 
+					";C:\Program Files (x86)\Sysinternals Suite", 
+					";C:\Program Files\7-Zip",
+					";C:\OpenSSL-Win32\bin" )
+					
+foreach ($path in $requiredPaths)
+{
+	if (!($env:Path.Contains($path))) { $env:Path += $path }
+}
 
 
 # Setup local GitHub dependencies...

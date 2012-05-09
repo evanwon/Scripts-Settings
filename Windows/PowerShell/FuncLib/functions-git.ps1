@@ -1,17 +1,6 @@
 # Configures Git global configuration settings... 
 Function Setup-Git([string]$username = "kbeckman", [string]$email = "kbeckman.c4sc@gmail.com")
 {
-	$pathEnvVariable 	= [Environment]::GetEnvironmentVariable("Path")
-	$diffmergePath 		= ";C:\Program Files\SourceGear\Common\DiffMerge"
-
-	# Add DiffMerge to the EnvironmentVariable:Path if it's not already there. 
-	# It is required to launch DiffMerge from the git commands.
-	if (!($pathEnvVariable -contains $diffmergePath))
-	{  
-		$pathEnvVariable += $diffmergePath
-		[Environment]::SetEnvironmentVariable("Path", $env:path, "Machine")
-	}
-
 	git config --global user.name $username
 	git config --global user.email $email
 
