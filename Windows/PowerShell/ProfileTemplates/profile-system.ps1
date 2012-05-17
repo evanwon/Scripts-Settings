@@ -24,7 +24,8 @@ Function Setup-Dependencies([string]$githubPath)
 # START PROFILE SCRIPT
 
 # Set necessary command line environment variables...
-# [Ruby 1.9.3, Git, TortoiseHg, DiffMerge, NuGet, VirtualBox, Sysinternals Suite, 7-7ip, OpenSSL]
+# [Ruby 1.9.3, Git, TortoiseHg, DiffMerge, NuGet, VirtualBox, Sysinternals Suite, 7-7ip, OpenSSL,
+# MakeCert.exe]
 $requiredPaths = @( ";C:\Ruby193\bin", 					
 					";C:\Program Files (x86)\Git\cmd",
 					";C:\Program Files\TortoiseHg",
@@ -33,7 +34,8 @@ $requiredPaths = @( ";C:\Ruby193\bin",
 					";C:\Program Files\Oracle\VirtualBox", 
 					";C:\Program Files (x86)\Sysinternals Suite", 
 					";C:\Program Files\7-Zip",
-					";C:\OpenSSL-Win32\bin" )
+					";C:\OpenSSL-Win32\bin",
+					";C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin" )
 					
 foreach ($path in $requiredPaths)
 {
