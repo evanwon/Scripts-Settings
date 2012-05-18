@@ -1,4 +1,4 @@
-#C4SC/Scripts-Settings#
+#Scripts-Settings#
 This is my personal collection of Windows, Mac and Linux scripts used to automate system functions, virtual machine 
 maintenance, etc. Contained within are various PowerShell and Bash scripts that make my life easier as a developer. I'm
 working to duplicate most of the script functionality across the PowerShell and Bash environments allowing for a unified
