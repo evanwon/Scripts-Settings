@@ -12,7 +12,7 @@ into your personal PowerShell profile script (this is usually located at %HOME%\
 2. Re-Source your profile script... <strong>. $PROFILE</strong>
 <br/><br/>
 
-##PowerShell Initial Setup##
+##Disclaimer##
 Anyone wanting to use this script library may fork this repo and modify scripts at will. You should really only have to change
 some function parameter defaults (i.e. replace my usernames/email, update environment paths,e tc) to get up and running. Lastly, 
 this is an extremely fluid source repository... Every time I learn something new or figure out a way to automate a task, it gets 
