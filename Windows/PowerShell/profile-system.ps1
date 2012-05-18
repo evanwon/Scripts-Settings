@@ -3,8 +3,8 @@
 
 
 # Use this snippet if corporate domain policies hijack your $HOME folder...
-Remove-Variable -Force HOME
-Set-Variable HOME "C:\Users\Keith Beckman"
+# Remove-Variable -Force HOME
+# Set-Variable HOME "C:\Users\Keith Beckman"
 
 
 # Downloads all system scripts and dependencies required by PowerShell environment...
@@ -71,8 +71,9 @@ if (Test-Path $poshHgPath) { . $poshGitPath }
 
 
 # Load developer profile script...
-$devProfilePath = Join-Path $HOME "My Documents\WindowsPowerShell\Microsoft.PowerShell_developer.ps1"
-if (Test-Path $devProfilePath) { . $devProfilePath }
+$devProfilePath = Join-Path $HOME "GitHub\Scripts-Settings\Windows\PowerShell\profile-developer.ps1"	
+. $devProfilePath
 
 
 cd $HOME
+
