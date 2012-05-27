@@ -60,7 +60,7 @@ else
 }
 
 
-Setup-PowerShell-UI
+Setup-PowerShell-Console
 
 
 # Load Posh-Hg/Git libraries...

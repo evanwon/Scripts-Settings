@@ -1,5 +1,5 @@
 # Configures PowerShell UI settings...
-Function Setup-PowerShell-UI()
+Function Setup-PowerShell-Console()
 {
 	$host.ui.rawui.ForegroundColor 	= "Green"
 	$host.ui.rawui.BackgroundColor 	= "Black"
