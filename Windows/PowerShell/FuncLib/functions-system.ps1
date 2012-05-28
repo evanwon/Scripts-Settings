@@ -12,7 +12,7 @@ Function Setup-PowerShell-Console()
 
 	$windowSize = $host.ui.rawui.WindowSize
 	$windowSize.Width = 140
-	$windowSize.Height = 44
+	$windowSize.Height = 40
 	$host.ui.rawui.WindowSize = $windowSize
 
 	Clear-Host
@@ -45,12 +45,12 @@ Function Clean-Disk()
 
 Function Defrag-All-Drives()
 {
-	defrag '/C /M /W /U'
-	defrag '/C /M /X /U'
+	defrag /C /U /V
+	defrag /C /U /X
 }
 
 Function Defrag-C-Drive()
 {
-	defrag C: /H /W /U
+	defrag C: /U /V
 }
 
