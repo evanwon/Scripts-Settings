@@ -1,5 +1,5 @@
 # define the PowerShell script parameters...
-param($systemType = $(throw "systemType (VM, Host) is required."))
+param($systemType = $(throw "$systemType parameter (VM, Host) is required."))
 
 Clean-Disk
 
