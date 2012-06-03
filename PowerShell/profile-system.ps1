@@ -45,7 +45,7 @@ foreach ($path in $requiredPaths)
 
 # Setup local GitHub dependencies...
 $sysGitHub 	= Join-Path $HOME "GitHub"
-$sysScripts = Join-Path $sysGitHub "Scripts-Settings\Windows\PowerShell\FuncLib"	
+$sysScripts = Join-Path $sysGitHub "Scripts-Settings\PowerShell\FuncLib"	
 if (!(Test-Path $sysGitHub )) 
 { 
 	Setup-Dependencies $sysGitHub 
@@ -71,7 +71,7 @@ if (Test-Path $poshHgPath) { . $poshGitPath }
 
 
 # Load developer profile script...
-$devProfilePath = Join-Path $HOME "GitHub\Scripts-Settings\Windows\PowerShell\profile-developer.ps1"	
+$devProfilePath = Join-Path $sysGitHub "Scripts-Settings\PowerShell\profile-developer.ps1"	
 . $devProfilePath
 
 
