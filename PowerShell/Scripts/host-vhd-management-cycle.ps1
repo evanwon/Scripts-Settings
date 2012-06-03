@@ -4,7 +4,7 @@ Get-Date
 rm "d:\vhd backups\old\*.7z"
 mv "d:\vhd backups\*.7z" "d:\vhd backups\old"
 
-$scriptPath = Join-Path $sysGitHub "PowerShell\Scripts\host-comapt-merge-disks.txt"
+$scriptPath = Join-Path $sysGitHub "PowerShell\Scripts\comapt-merge-disks.diskpart"
 diskpart /s $scriptPath
 
 Get-Date
