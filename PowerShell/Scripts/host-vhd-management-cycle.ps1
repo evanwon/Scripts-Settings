@@ -4,7 +4,8 @@ Get-Date
 rm "d:\vhd backups\old\*.7z"
 mv "d:\vhd backups\*.7z" "d:\vhd backups\old"
 
-& "diskpart" /s "C:\Scripts-Settings\Windows\Scripts\Virtual Machine\Host\VHD Mgmt - Compact and Merge Disks.txt"
+$scriptPath = Join-Path $sysGitHub "PowerShell\Scripts\host-comapt-merge-disks.txt"
+diskpart /s $scriptPath
 
 Get-Date
 
@@ -12,4 +13,3 @@ Seven-Zip "v:\native\developer\2008r2_developer.vhd" "d:\vhd backups\2008R2_Deve
 Seven-Zip "v:\native\developer\2008r2_data.vhd" "d:\vhd backups\2008R2_Data.7z" 
 
 Get-Date
-
