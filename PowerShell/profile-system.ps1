@@ -51,7 +51,7 @@ if (!(Test-Path $sysGitHub ))
 	Setup-Dependencies $sysGitHub 
 	Get-ChildItem $sysScripts | 
 		ForEach-Object -Process { . (Join-Path $sysScripts $_.Name) }
-	Setup-Git "Keith Beckman" "kbeckman.c4sc@gmail.com"
+	Setup-Git
 }
 else 
 { 
