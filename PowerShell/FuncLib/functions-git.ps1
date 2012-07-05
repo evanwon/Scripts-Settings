@@ -1,5 +1,5 @@
 # Configures Git global configuration settings... 
-Function Setup-Git([string]$username = "kbeckman", [string]$email = "kbeckman.c4sc@gmail.com")
+Function Git-Setup([string]$username = "kbeckman", [string]$email = "kbeckman.c4sc@gmail.com")
 {
 	git config --global user.name $username
 	git config --global user.email $email
@@ -15,7 +15,7 @@ Function Setup-Git([string]$username = "kbeckman", [string]$email = "kbeckman.c4
 }
 
 # Configures Git at a repository level... 
-Function Setup-Git-Repo([string]$username = "kbeckman", [string]$email = "kbeckman.c4sc@gmail.com")
+Function Git-Setup-Repo([string]$username = "kbeckman", [string]$email = "kbeckman.c4sc@gmail.com")
 {
 	git config user.name $username
 	git config user.email $email
