@@ -49,13 +49,13 @@ $sysScripts = Join-Path $sysGitHub "Scripts-Settings\PowerShell\FuncLib"
 if (!(Test-Path $sysGitHub )) 
 { 
 	Setup-Dependencies $sysGitHub 
-	Get-ChildItem $sysScripts | 
+	Get-ChildItem $sysScripts -filter "*.ps1" | 
 		ForEach-Object -Process { . (Join-Path $sysScripts $_.Name) }
 	Setup-Git
 }
 else 
 { 
-	Get-ChildItem $sysScripts | 
+	Get-ChildItem $sysScripts -filter "*.ps1" | 
 		ForEach-Object -Process { . (Join-Path $sysScripts $_.Name) } 
 }
 

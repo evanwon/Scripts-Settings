@@ -1,0 +1,67 @@
+####################################################################
+# 					OpenSSL CA configuration file
+####################################################################
+
+dir			= C:\\Users\\keith_beckman\\OpenSSL
+caDir		= $dir\\OpenSSL\\myCA
+RANDFILE	= $dir\\.rnd
+
+####################################################################
+[ ca ]
+default_ca  = CA_default        # The default ca section
+
+####################################################################
+[ CA_default ]
+certificate			= $caDir\\Certificates\\cacert.pem			# CA X509 certificate
+private_key			= $caDir\\Certificates\\private\\cakey.pem		# CA private key
+new_certs_dir		= $caDir\\Signed								# default directory for new certs
+RANDFILE			= $caDir\\Certificates\\private\\.rnd			# private random number file
+default_days		= 1825										# number of days certificate is valid
+default_md			= sha256									# default message digets algorithm
+serial				= $caDir\\serial								# serial number file
+database			= $caDir\\index            					# database index file
+policy				= CA_default_policy
+x509_extensions		= x509v3_extensions    						# extentions to add to the cert
+
+
+[ CA_default_policy ]
+countryName            		= supplied
+stateOrProvinceName        	= supplied
+organizationName        	= supplied
+organizationalUnitName    	= optional
+commonName            		= supplied
+emailAddress            	= optional
+
+
+[ open_policy ]
+countryName        			= optional
+stateOrProvinceName    		= optional
+localityName        		= optional
+organizationName    		= optional
+organizationalUnitName  	= optional
+commonName            		= supplied
+emailAddress            	= optional
+
+####################################################################
+[ req ]
+default_bits        		= 2048
+default_keyfile     		= $caDir\\Certificates\\private\\cakey.pem
+default_md					= sha256
+prompt						= yes
+distinguished_name  		= CA_distinguished_name
+x509_extensions         	= x509v3_extensions
+
+[ CA_distinguished_name ]
+commonName            		= KBeckman Root CA
+countryName            		= US
+stateOrProvinceName        	= TN
+localityName            	= Hermitage
+organizationName        	= Coding4StreetCred
+organizationalUnitName    	= IT
+emailAddress            	= kbeckman.c4sc@gmail.com
+
+
+[ x509v3_extensions ]
+basicConstraints			= CA:TRUE
+subjectKeyIdentifier		= hash
+authorityKeyIdentifier		= keyid:always,issuer:always
