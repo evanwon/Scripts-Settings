@@ -51,7 +51,7 @@ if (!(Test-Path $sysGitHub ))
 	Setup-Dependencies $sysGitHub 
 	Get-ChildItem $sysScripts -filter "*.ps1" | 
 		ForEach-Object -Process { . (Join-Path $sysScripts $_.Name) }
-	Setup-Git
+	Git-Setup
 }
 else 
 { 
