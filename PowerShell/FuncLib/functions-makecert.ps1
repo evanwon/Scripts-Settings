@@ -34,10 +34,13 @@
 # -crl                Generate a CRL instead of a certificate
 # -eku <oid[<,oid>]>  Comma separated enhanced key usage OIDs
 
-function MakeCert-AzureAcs([string]$acsNamespace = $(throw "$acsNamespace parameter is required.")) {
+function AzureACS-MakeCert([string]$acsNamespace = $(throw "$acsNamespace parameter is required.")) {
 	$expiration = Get-Date
-	$expiration = $expiration.AddYears(1)
+	$expiration = $expiration.AddYears(1).ToString("MM/dd/yyyy")
 		
-	MakeCert -r -ir LocalMachine -pe -n "CN=$($acsNamespace).accesscontrol.windows.net" -sky exchange -ss my -len 2048 -e 12/31/2013
+	MakeCert -r -pe -n "CN=$($acsNamespace).accesscontrol.windows.net" -sky exchange -ss my -len 2048 -e $expiration
+	
+	Write-Output "Expiration Date: $($expiration)"
+	Write-Output "The self-signed cert can be found in your Personal certificate store."
 }	
 
