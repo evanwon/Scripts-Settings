@@ -1,3 +1,6 @@
+$mongoBinaries	= "C:\Program Files\MongoDB\bin"
+$mongoStorage	= "S:\MongoDB_Data"
+
 Function Mongo-Install-Service()
 {
 	$logPath 	= $mongoStorage + "\mongo.log"
