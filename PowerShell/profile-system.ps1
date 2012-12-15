@@ -23,15 +23,6 @@ Function Setup-Dependencies([string]$githubPath)
 
 # START PROFILE SCRIPT
 
-# Add WebDeploy 3.0 PowerShell Snap-In
-$wdeploy3 = $false
-foreach ($snapin in Get-PSSnapin)
-{
-	if ($snapin.Name.Equals("WDeploySnapin3.0")) { $wdeploy3 = $true }
-}
-if (!$wdeploy3) { Add-PSSnapin "WDeploySnapin3.0" }
-
-
 # Set necessary command line environment variables...
 # [Ruby 1.9.3, Git, TortoiseHg, DiffMerge, NuGet, VirtualBox, Sysinternals Suite, 7-7ip, OpenSSL,
 # MakeCert.exe]
@@ -85,4 +76,3 @@ $devProfilePath = Join-Path $sysGitHub "Scripts-Settings\PowerShell\profile-deve
 
 
 cd $HOME
-
