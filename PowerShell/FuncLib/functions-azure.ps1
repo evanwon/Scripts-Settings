@@ -1,7 +1,3 @@
-# Loads the Windows Azure PowerShell libraries... This needs to be installed via Web Platform Installer.
-$psAzure = "C:\Program Files (x86)\Microsoft SDKs\Windows Azure\PowerShell\Azure\"
-Get-ChildItem ($psAzure + "*.psd1") | ForEach-Object {Import-Module $_}
-
 ###----------------MakeCert Options----------------###
 # -sk  <keyName>      Subject's key container name; To be created if not present
 # -pe                 Mark generated private key as exportable
