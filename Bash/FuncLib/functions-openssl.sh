@@ -14,10 +14,10 @@ function setup-openssl {
   cp ~/GitHub/Scripts-Settings/Bash/FuncLib/caconfig.cnf myCA/
   
   # Create the Root CA certificate...
-  openssl req -x509 -newkey rsa:4096 -out myCA/cacert.pem -outform PEM -days 1825
+  openssl req -x509 -newkey rsa:4096 -out myCA/cacert.pem -outform PEM -days 1825 -config ~/OpenSSL/myCA/caconfig.cnf
   
   # Strip all certificate metadata leaving only the CERTIFICATE section...
-  openssl x509 -in myCA/cacert.pem -out myCA/cacert.crt
+  openssl x509 -in myCA/cacert.pem -out myCA/cacert.crt -config ~/OpenSSL/myCA/caconfig.cnf
 }
 
 #function generate-ca-signed-cert {
