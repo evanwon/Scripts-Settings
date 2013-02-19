@@ -1,5 +1,5 @@
 # Configures Git global configuration settings...
-function setup-git {
+function git-setup {
     defaultUser="kbeckman"
     defaultEmail="kbeckman.c4sc@gmail.com"
 
@@ -25,7 +25,7 @@ function setup-git {
 }
 
 # Configures Git at a repository level... 
-function setup-git-repo
+function git-setup-repo
 {
     defaultUser="kbeckman"
     defaultEmail="kbeckman.c4sc@gmail.com"
