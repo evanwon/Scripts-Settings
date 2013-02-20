@@ -11,9 +11,9 @@ into your personal PowerShell profile script (this is usually located at %HOME%\
 <br/><br/>
 
 ## Bash Setup ##
-1. Clone this repository to your $HOME directory.
+1. Clone this repository to your $HOME directory.<br/><br/>
     git clone git@github.com:kbeckman/Scripts-Settings.git ~
-2. Run the following command to add a line to your `~/.bashrc` or `~/.zshenv` file:
+2. Run the following command to add a line to your `~/.bashrc` or `~/.zshenv` file.<br/><br/>
     echo ". ~/Scripts-Settings/Bash/environment-setup.sh" >> ~/.zshenv
-3. Re-source your `~/.bashrc` or `~/.zshenv` file:
+3. Re-source your `~/.bashrc` or `~/.zshenv` file.<br/><br/>
     . ~/.zshenv
