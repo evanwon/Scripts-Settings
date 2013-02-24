@@ -7,17 +7,39 @@
 # Set-Variable HOME "C:\Users\Keith Beckman"
 
 
-# Downloads all system scripts and dependencies required by PowerShell environment...
-# $githubPath: sysGitHub target dir, installation directory
-Function Setup-Dependencies([string]$githubPath)
-{
-	if (!(Test-Path $githubPath)) { mkdir $githubPath }
+$scriptsSettingsPath 	= Join-Path $HOME "Scripts-Settings"
+$dependenciesPath 		= Join-Path $scriptsSettingsPath "lib"
+$psScriptsPath 			= Join-Path $scriptsSettingsPath "\PowerShell\FuncLib"
 
-	cd $githubPath
 
+# Initial setup function for Scripts-Settings repo and PowerShell dependencies...
+Function Setup-Dependencies()
+{	
+	cd $HOME
+	git clone 'git@github.com:kbeckman/Scripts-Settings.git'
+	
+	if (!(Test-Path $dependenciesPath )) { mkdir $dependenciesPath }
+	
+	cd $dependenciesPath
 	git clone 'https://github.com/JeremySkinner/posh-hg.git'
-	git clone 'https://github.com/dahlbyk/posh-git.git'
-	git clone 'https://kbeckman@github.com/kbeckman/Scripts-Settings.git'
+	git clone 'https://github.com/dahlbyk/posh-git.git'	
+}
+# Updates Scripts-Settings and repo and PowerShell dependencies...
+Function Update-Git-Repos()
+{	
+	Function Update-Repo([string]$repoPath)
+	{
+		cd $repoPath
+		git pull --rebase
+	}
+	
+	Update-Repo $scriptsSettingsPath
+
+	cd $dependenciesPath
+	dir -Directory |
+		ForEach-Object -Process { Update-Repo (Join-Path $dependenciesPath $_.Name) }
+		
+	cd $HOME
 }
 
 
@@ -35,28 +57,25 @@ $requiredPaths = @( ";C:\Ruby193\bin",
 					";C:\Program Files (x86)\Sysinternals Suite", 
 					";C:\Program Files\7-Zip",
 					";C:\OpenSSL-Win32\bin",
-					";C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin" )
-					
+					";C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin",
+					";C:\Program Files (x86)\Windows Kits\8.0\bin\x64")
 foreach ($path in $requiredPaths)
 {
 	if (!($env:Path.Contains($path))) { $env:Path += $path }
 }
 
-
-# Setup local GitHub dependencies...
-$sysGitHub 	= Join-Path $HOME "GitHub"
-$sysScripts = Join-Path $sysGitHub "Scripts-Settings\PowerShell\FuncLib"	
-if (!(Test-Path $sysGitHub )) 
+	
+if (!(Test-Path $scriptsSettingsPath )) 
 { 
-	Setup-Dependencies $sysGitHub 
-	Get-ChildItem $sysScripts -filter "*.ps1" | 
-		ForEach-Object -Process { . (Join-Path $sysScripts $_.Name) }
+	Setup-Dependencies
+	Get-ChildItem $psScriptsPath -filter "*.ps1" | 
+		ForEach-Object -Process { . (Join-Path $psScriptsPath $_.Name) }
 	Git-Setup
 }
 else 
 { 
-	Get-ChildItem $sysScripts -filter "*.ps1" | 
-		ForEach-Object -Process { . (Join-Path $sysScripts $_.Name) } 
+	Get-ChildItem $psScriptsPath -filter "*.ps1" | 
+		ForEach-Object -Process { . (Join-Path $psScriptsPath $_.Name) }
 }
 
 
@@ -64,15 +83,10 @@ Setup-PowerShell-Console
 
 
 # Load Posh-Hg/Git libraries...
-$poshHgPath		= Join-Path $sysGitHub "posh-hg\profile.example.ps1"
-$poshGitPath	= Join-Path $sysGitHub "posh-git\profile.example.ps1"
+$poshHgPath		= Join-Path $dependenciesPath "posh-hg\profile.example.ps1"
+$poshGitPath	= Join-Path $dependenciesPath "posh-git\profile.example.ps1"
 if (Test-Path $poshHgPath) { . $poshHgPath }
 if (Test-Path $poshHgPath) { . $poshGitPath }
-
-
-# Load developer profile script...
-$devProfilePath = Join-Path $sysGitHub "Scripts-Settings\PowerShell\profile-developer.ps1"	
-. $devProfilePath
 
 
 cd $HOME
