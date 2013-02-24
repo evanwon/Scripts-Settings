@@ -4,9 +4,8 @@ maintenance, etc. Contained within are various PowerShell and Bash scripts that 
 <br/><br/>
 
 ## PowerShell Initial Setup ##
-1. Browse to this repository from your fresh Windows installation and copy the contents from 
-[\Windows\PowerShell\profile-system.ps1](https://raw.github.com/kbeckman/Scripts-Settings/master/PowerShell/profile-system.ps1) 
-into your personal PowerShell profile script (this is usually located at %HOME%\My Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1).
+1. Copy the contents of [\Windows\PowerShell\profile-system.ps1](https://raw.github.com/kbeckman/Scripts-Settings/master/PowerShell/profile-system.ps1) 
+into your personal PowerShell profile script (%HOME%\My Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1).
 2. Re-Source your profile script... <strong>. $PROFILE</strong>
 <br/><br/>
 
