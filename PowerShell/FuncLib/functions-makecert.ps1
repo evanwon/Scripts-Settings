@@ -35,22 +35,20 @@
 # -eku <oid[<,oid>]>  Comma separated enhanced key usage OIDs
 
 function MakeCert-AzureACS([string]$acsNamespace = $(throw "$acsNamespace parameter is required."), $yearsToExpiration = 1) {
-	$expiration = Get-Date
-	$expiration = $expiration.AddYears($yearsToExpiration).ToString("MM/dd/yyyy")
-		
-	MakeCert -r -pe -n "CN=$($acsNamespace).accesscontrol.windows.net" -sky exchange -ss my -len 2048 -e $expiration
-	
-	Write-Output "Expiration Date: $($expiration)"
-	Write-Output "The self-signed cert can be found in your Personal certificate store."
+	$commonName = "$($acsNamespace).accesscontrol.windows.net"
+
+	MakeCert-SelfSigned $commonName $yearsToExpiration
 }
 
 function MakeCert-SelfSigned([string]$commonName = $(throw "$commonName parameter is required."), $yearsToExpiration = 1) {
 	$expiration = Get-Date
 	$expiration = $expiration.AddYears($yearsToExpiration).ToString("MM/dd/yyyy")
+	$certFile	= "$($commonName).crt"
+	$certPath 	= Join-Path $HOME $certFile
 		
-	MakeCert -r -pe -n "CN=$($commonName)" -sky exchange -ss my -len 2048 -e $expiration
+	MakeCert -r -pe -sr "LocalMachine" -n "CN=$($commonName)" -sky exchange -ss my -len 2048 -e $expiration $certPath
 	
 	Write-Output "Expiration Date: $($expiration)"
-	Write-Output "The self-signed cert can be found in your Personal certificate store."
+	Write-Output "Certificate File: $($certPath)"
 }		
 
