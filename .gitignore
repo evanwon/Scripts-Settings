@@ -7,3 +7,6 @@
 # Other
 .DS_Store
 *.gem
+
+#PowerShell Dependencies
+lib
