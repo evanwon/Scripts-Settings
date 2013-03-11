@@ -7,5 +7,5 @@ alias gitk='gitk 2>/dev/null'
 . ~/Scripts-Settings/Bash/FuncLib/functions-utility.sh
 . ~/Scripts-Settings/Bash/FuncLib/functions-git.sh
 . ~/Scripts-Settings/Bash/FuncLib/functions-openssl.sh
-
+. ~/Scripts-Settings/Bash/FuncLib/functions-onlife.sh
 
