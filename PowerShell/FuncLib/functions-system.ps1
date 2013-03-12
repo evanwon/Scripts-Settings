@@ -54,3 +54,9 @@ Function Defrag-C-Drive()
 	defrag C: /U /V
 }
 
+# Launch SSMS as a given domain user instead of a local machine account...
+Function SQLServer-RunAs([string]$user = $(throw "$user parameter is required."))
+{
+	runas /netonly /user:$user ssms.exe
+}
+
