@@ -1,10 +1,10 @@
-ismac() {
-	unamestr=`uname`
+function host-os {
+	local unamestr=`uname`
 
 	if [[ $unamestr == "Darwin" ]]; then
-		return 1
+		echo "mac"
 	else
-   		return 0	
+   		echo "linux"	
 	fi
 }
 

@@ -1,18 +1,18 @@
 # Configures Git global configuration settings...
 function git-setup {
-    defaultUser="kbeckman"
-    defaultEmail="kbeckman.c4sc@gmail.com"
+    local defaultUser="kbeckman"
+    local defaultEmail="kbeckman.c4sc@gmail.com"
 
     git config --global user.name "${1:-$defaultUser}"
     git config --global user.email "${2:-$defaultEmail}"
     
-	#if ismac; then
+    if [[ $(host-os) == "mac" ]]; then
 		diff_str="/Applications/DiffMerge.app/Contents/MacOS/diffmerge \$LOCAL \$REMOTE"
    		merge_str="/Applications/DiffMerge.app/Contents/MacOS/diffmerge --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"
-	#else
-   		#diff_str="/usr/bin/diffmerge \$LOCAL \$REMOTE"
-   		#merge_str="/usr/bin/diffmerge --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"	
-	#fi
+	else
+   		diff_str="/usr/bin/diffmerge \$LOCAL \$REMOTE"
+   		merge_str="/usr/bin/diffmerge --merge --result=\$MERGED \$LOCAL \$BASE \$REMOTE"	
+	fi
 
     git config --global diff.tool diffmerge
     git config --global difftool.diffmerge.cmd "${diff_str}"
@@ -24,12 +24,32 @@ function git-setup {
     git config --global color.ui true
 }
 
+
 # Configures Git at a repository level... 
 function git-setup-repo
 {
-    defaultUser="kbeckman"
-    defaultEmail="kbeckman.c4sc@gmail.com"
+    local defaultUser="kbeckman"
+    local defaultEmail="kbeckman.c4sc@gmail.com"
     
     git config user.name "${1:-$defaultUser}"
     git config user.email "${2:-$defaultEmail}"
+}
+
+
+# Gets the latest for all branches on a git project repo [staging, qa, master]...
+function git-get-latest
+{
+	local defaultRepo=""
+	local repo="${1:-$defaultRepo}"
+	local branches=(staging qa master)
+	
+if [ eval "$repo" ]
+	then
+		cd $repo
+	fi
+	
+	for branch in "${branches[@]}"
+	do
+		git checkout $branch && git pull --rebase
+	done
 }
