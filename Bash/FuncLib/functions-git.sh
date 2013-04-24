@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Configures Git global configuration settings...
 function git-setup {
     local defaultUser="kbeckman"
@@ -33,23 +35,4 @@ function git-setup-repo
     
     git config user.name "${1:-$defaultUser}"
     git config user.email "${2:-$defaultEmail}"
-}
-
-
-# Gets the latest for all branches on a git project repo [staging, qa, master]...
-function git-get-latest
-{
-	local defaultRepo=""
-	local repo="${1:-$defaultRepo}"
-	local branches=(staging qa master)
-	
-if [ eval "$repo" ]
-	then
-		cd $repo
-	fi
-	
-	for branch in "${branches[@]}"
-	do
-		git checkout $branch && git pull --rebase
-	done
 }
